@@ -1,1 +1,1 @@
-lfs + xen + free nomachine = 简洁的虚拟化解决方案。
+lfs + xen + free nomachine = 简洁的虚拟化解决方案，当然这只是一个简单的方案。
