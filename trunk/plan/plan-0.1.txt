@@ -1,0 +1,1 @@
+lfs + xen + free nomachine = 简洁的虚拟化解决方案。
