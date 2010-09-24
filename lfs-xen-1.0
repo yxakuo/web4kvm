@@ -1,0 +1,181 @@
+
+lfs-xen lite distro development document 1.0
+
+===================================================
+
+Description:
+    generate a basic lfs-xen system.
+
+Author:
+    Chen Yuwen, Peter Xiong
+
+===================================================
+
+Synopsis:
+1.lfs
+2.xen
+3.future-extensions
+
+Content:
+
+
+1.lfs:
+jhalfs-2.3.2
+lfs-packages-6.6
+
+1.1.jhalfs-2.3.2 environment:
+linux-desktop
+KERNEL............ 
+BASH.............. 
+GCC............... 
+GLIBC............. 
+BINUTILS.......... 
+TAR............... 
+BZIP2............. 
+BISON............. no
+COREUTILS......... 
+DIFF.............. 
+FIND.............. 
+GAWK.............. 
+GREP.............. 
+GZIP.............. 
+M4................ 
+MAKE.............. 
+PATCH............. 
+PERL.............. 
+SED............... 
+TEXINFO........... no
+SUDO.............. 
+LIBXML2........... 
+LIBXSLT........... 
+
+1.2.toolchain:
+Linux-2.6.32.8 API Headers
+Glibc-2.11.1
+Binutils-2.20
+GCC-4.4.3
+Tcl-8.5.8
+Expect-5.43.0
+DejaGNU-1.4.4
+Ncurses-5.7
+Bash-4.1
+Bzip2-1.0.5
+Coreutils-8.4
+Diffutils-2.8.1
+Findutils-4.4.2
+Gawk-3.1.7
+Gettext-0.17
+Grep-2.5.4
+Gzip-1.4
+M4-1.4.13
+Make-3.81
+Patch-2.6.1
+Perl-5.10.1
+Sed-4.2.1
+Tar-1.22
+Texinfo-4.13a
+
+1.3.basic system:(only request packages supporting xen)
+Linux-2.6.32.8 API Headers
+#Man-pages-3.23
+Glibc-2.11.1
+Zlib-1.2.3
+#Binutils-2.20
+GMP-5.0.0
+MPFR-2.4.2
+File-5.04
+#GCC-4.4.3
+Sed-4.2.1
+Pkg-config-0.23
+Ncurses-5.7
+Util-linux-ng-2.17
+E2fsprogs-1.41.10
+Coreutils-8.4
+Iana-Etc-2.30
+M4-1.4.13
+Bison-2.4.1
+Procps-3.2.8
+Grep-2.5.4
+Readline-6.1
+Bash-4.1
+Libtool-2.2.6b
+GDBM-1.8.3
+Inetutils-1.7
+Perl-5.10.1
+#Autoconf-2.65
+#Automake-1.11.1
+Bzip2-1.0.5
+Diffutils-2.8.1
+Gawk-3.1.7
+Findutils-4.4.2
+Flex-2.5.35
+Gettext-0.17
+Groff-1.20.1
+GRUB-1.97.2
+Gzip-1.4
+IPRoute2-2.6.31
+Kbd-1.15.1
+Less-436
+#Make-3.81
+Man-DB-2.5.6
+Module-Init-Tools-3.11.1
+Patch-2.6.1
+Psmisc-22.10
+Shadow-4.1.4.2
+Sysklogd-1.5
+Sysvinit-2.86
+Tar-1.22
+Texinfo-4.13a
+Udev-151
+Vim-7.2
+
+1.4.script modification:
+1.4.1.add config file in jhalfs (kernel, fstab, ...) 
+1.4.2.remove some unnecessary packages in basic system
+1.4.3.add some other usefull packages 
+1.4.4.add necessary packages to support xen
+1.4.4.1.dependencies to build xen:(add in toolchain)
+    * GCC v3.4 or later
+    * GNU Make
+    * GNU Binutils
+    * Development install of zlib (e.g., zlib-dev)
+    * Development install of Python v2.3 or later (e.g., python-dev)
+    * Development install of curses (e.g., libncurses-dev)
+    * Development install of openssl (e.g., openssl-dev)
+    * Development install of x11 (e.g. xorg-x11-dev)
+    * bridge-utils package (/sbin/brctl)
+    * iproute package (/sbin/ip)
+    * hotplug or udev
+    * GNU bison and GNU flex
+    * git
+    * dev86 (http://www.debath.co.uk/dev86/)
+    * iasl (http://acpica.org/downloads/)
+    * SDL-devel
+
+1.4.4.2.dependencies to run xen:(add in basic system)
+    * Python 2.3 or later:
+          URL:    http://www.python.org/
+          Debian: python, python-xml
+
+    * For optional SSL support, pyOpenSSL:
+          URL:    http://pyopenssl.sourceforge.net/
+          Debian: python-pyopenssl
+
+    * For optional PAM support, PyPAM:
+          URL:    http://www.pangalactic.org/PyPAM/
+          Debian: python-pam
+
+    * For optional XenAPI support in XM, PyXML:
+          URL:    http://pyxml.sourceforge.net
+          YUM:    PyXML
+
+2.xen:
+xen-4.0.1
+
+2.1.xen-4.0.1
+2.1.1.add xen option in jhalfs menuconfig config.in
+2.1.2.make xen
+
+3.future-extensions
+portage
+
