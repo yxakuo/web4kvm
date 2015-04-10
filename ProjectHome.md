@@ -1,0 +1,1 @@
+This is an idea about KVM. i just want to establish a project to create a web controller like EXS from VMWare for KVM. This project will developed by python. And it will be a good tool for the web controller.
